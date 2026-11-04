@@ -64,6 +64,51 @@
 
   const clientCarousel = document.querySelector(".client-logos");
   if (clientCarousel && !clientCarousel.dataset.carouselReady) {
+    const clientNames = {
+      "01_abbott.webp": "Abbott",
+      "03_air_products.webp": "Air Products",
+      "04_avon.webp": "Avon",
+      "05_bacardi.webp": "Bacardi",
+      "06_baxter.webp": "Baxter",
+      "07_bic.webp": "BIC",
+      "08_o_boticario.webp": "O Boticário",
+      "09_c_and_a.webp": "C&A",
+      "11_chemtura.webp": "Chemtura",
+      "12_continental.webp": "Continental",
+      "14_embraer.webp": "Embraer",
+      "16_ferrero.webp": "Ferrero",
+      "17_gates.webp": "Gates",
+      "18_honda.webp": "Honda",
+      "19_igesp.webp": "Hospital IGESP",
+      "20_intelli.webp": "Intelli",
+      "21_iscar.webp": "ISCAR",
+      "22_kspg_automotive.webp": "KSPG Automotive",
+      "23_lanxess.webp": "Lanxess",
+      "25_leaseplan.webp": "LeasePlan",
+      "26_makita.webp": "Makita",
+      "30a_organon.webp": "Organon",
+      "30b_schering_plough.webp": "Schering-Plough",
+      "32_sandvik.webp": "Sandvik",
+      "35_sulzer.webp": "Sulzer",
+      "36_taegutec.webp": "TaeguTec",
+      "37_titan.webp": "Titan",
+      "38_toyota.webp": "Toyota",
+      "39_unimed.webp": "Unimed",
+      "40_yazaki.webp": "Yazaki",
+      "41_zambon.webp": "Zambon",
+    };
+    [...clientCarousel.querySelectorAll("img")].forEach((logo) => {
+      const fileName = new URL(logo.src, window.location.href).pathname
+        .split("/")
+        .pop()
+        .toLowerCase();
+      const clientName = clientNames[fileName];
+      if (!clientName) return;
+      logo.alt = clientName;
+      logo.title = clientName;
+      logo.setAttribute("aria-label", clientName);
+    });
+
     const carouselWindow = document.createElement("div");
     carouselWindow.className = "client-carousel-window";
     clientCarousel.parentNode.insertBefore(carouselWindow, clientCarousel);
