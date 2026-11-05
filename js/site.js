@@ -1,6 +1,8 @@
 (() => {
   document
-    .querySelectorAll('a[href^="https://www.linkedin.com/company/sngtecnologia"]')
+    .querySelectorAll(
+      'a[href^="https://www.linkedin.com/company/sngtecnologia"]',
+    )
     .forEach((link) => {
       link.href =
         "https://www.linkedin.com/company/sngtecnologia/posts/?feedView=all";
@@ -136,7 +138,10 @@
       '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 6-12 12"></path><path d="m6 6 12 12"></path></svg>';
     const setMenu = (open) => {
       mainNav.classList.toggle("open", open);
-      menuButton.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+      menuButton.setAttribute(
+        "aria-label",
+        open ? "Fechar menu" : "Abrir menu",
+      );
       menuButton.innerHTML = open ? closeIcon : menuIcon;
     };
 
@@ -167,7 +172,9 @@
     });
   }
 
-  const tabs = [...document.querySelectorAll(".product-screen-tabs [role=tab]")];
+  const tabs = [
+    ...document.querySelectorAll(".product-screen-tabs [role=tab]"),
+  ];
   const screenImages = [
     ...document.querySelectorAll(".product-screen-stage img"),
   ];
@@ -209,7 +216,8 @@
       if (panel) panel.setAttribute("aria-labelledby", `product-tab-${index}`);
       if (screenTitle) screenTitle.textContent = `${titles[index]} · SNG`;
       if (screenLabel) screenLabel.textContent = titles[index];
-      if (screenDescription) screenDescription.textContent = descriptions[index];
+      if (screenDescription)
+        screenDescription.textContent = descriptions[index];
     };
 
     const imagesReady = screenImages.map(
@@ -255,7 +263,8 @@
     const formatPhone = (value) => {
       const digits = value.replace(/\D/g, "").slice(0, 11);
       if (digits.length <= 2) return digits;
-      if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+      if (digits.length <= 6)
+        return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
       if (digits.length <= 10)
         return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
       return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
@@ -300,8 +309,7 @@
       };
       const errors = {
         nome: value("nome").length < 2 && "Informe um nome válido.",
-        empresa:
-          value("empresa").length < 2 && "Informe o nome da empresa.",
+        empresa: value("empresa").length < 2 && "Informe o nome da empresa.",
         email:
           !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value("email")) &&
           "Informe um e-mail válido.",
