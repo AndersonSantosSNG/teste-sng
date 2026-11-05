@@ -21,6 +21,23 @@ body{padding-top:0}
 .contact-split-page{height:auto;min-height:calc(100dvh - 76px);overflow:visible}
 .contact-form-panel{overflow:visible}
 
+.home-contact-section{background:#f4f7f6}
+.home-contact-grid{display:grid;grid-template-columns:minmax(0,.75fr) minmax(520px,1.25fr);gap:72px;align-items:start}
+.home-contact-copy{position:sticky;top:110px}
+.home-contact-copy h2{max-width:520px}
+.home-contact-copy .lead{max-width:520px;margin:24px 0 30px}
+.home-contact-section .contact-form{background:#fff;border:1px solid #dbe4e3;border-radius:12px;padding:32px;box-shadow:0 16px 42px #092d3e12}
+.home-contact-section .contact-direct{margin-top:30px}
+
+@media(max-width:900px){
+  .home-contact-grid{grid-template-columns:1fr;gap:38px}
+  .home-contact-copy{position:static}
+}
+
+@media(max-width:600px){
+  .home-contact-section .contact-form{padding:22px}
+}
+
 @media(min-width:901px) and (min-height:800px){
   .contact-split-page{height:calc(100dvh - 76px);min-height:calc(100dvh - 76px);overflow:hidden}
   .contact-image-panel{height:100%;min-height:0}
