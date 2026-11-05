@@ -15,6 +15,68 @@ body {
 .main-nav .button {
   flex-shrink: 0;
 }
+.main-nav .nav-login {
+  margin-left: 0;
+}
+
+/* Entradas suaves e microinterações */
+.motion-item {
+  opacity: 0;
+  transform: translateY(24px) scale(0.985);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--motion-delay, 0ms),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--motion-delay, 0ms);
+  will-change: opacity, transform;
+}
+.motion-item.motion-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.proof-grid > div.motion-item,
+.contact-fields > label.motion-item {
+  transform: translateY(18px);
+}
+.proof-grid > div.motion-item.motion-visible,
+.contact-fields > label.motion-item.motion-visible {
+  transform: translateY(0);
+}
+.solution-card,
+.ecosystem-cards .card,
+.home-contact-section .contact-form {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+.solution-card:hover,
+.ecosystem-cards .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px #092d3e1a;
+}
+.hero-generated-visual img {
+  animation: sng-hero-breathe 7s ease-in-out infinite;
+}
+@keyframes sng-hero-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-item,
+  .motion-item.motion-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-generated-visual img {
+    animation: none;
+  }
+}
 
 @media (max-width: 1180px) and (min-width: 901px) {
   .nav-wrap {

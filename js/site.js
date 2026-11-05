@@ -359,6 +359,15 @@
   if (!reducedMotion && "IntersectionObserver" in window) {
     const selector = [
       "main section",
+      ".proof-grid > div",
+      ".cards > *",
+      ".solution-grid > *",
+      ".ecosystem-cards > *",
+      ".process-phase",
+      ".market-stats > div",
+      ".home-contact-copy > *",
+      ".home-contact-section .contact-fields > label",
+      ".home-contact-section .contact-form > .button",
       ".inner-page .eyebrow",
       ".inner-page h1",
       ".page-lead",
